@@ -12,6 +12,7 @@ const app = express();
 
 // Authenitcate users with Google
 // https://console.developers.google.com
+// http://www.passportjs.org/packages/passport-google-oauth20/
 passport.use(
   new GoogleStrategy(
     {
@@ -19,11 +20,24 @@ passport.use(
       clientSecret: keys.GOOGLE_CLIENT_SECRET,
       callbackURL: "/auth/google/callback"
     },
-    accessToken => {
-      console.log(accessToken);
+    (accessToken, refreshToken, profile, done) => {
+      // TODO: Authentication functionality
+      console.log("Google callback initiated");
     }
   )
 );
+
+// Whenever a user comes to this route, we
+// want to kick off to passport for Google
+// OAuth and application flow
+app.get(
+  "/auth/google",
+  passport.authenticate("google", {
+    scope: ["profile", "email"]
+  })
+);
+
+app.get("/auth/google/callback", passport.authenticate("google"));
 
 if (keys.NODE_ENV === "production") {
   // Express will serve up production assets
