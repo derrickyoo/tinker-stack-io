@@ -12,13 +12,18 @@ const app = express();
 
 // Authenitcate users with Google
 // https://console.developers.google.com
-// passport.use(
-//   new GoogleStrategy({
-//     clientID: keys.GOOGLE_CLIENT_ID,
-//     clientSecret: keys.GOOGLE_CLIENT_SECRET,
-//     callbackURL: ""
-//   })
-// );
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: keys.GOOGLE_CLIENT_ID,
+      clientSecret: keys.GOOGLE_CLIENT_SECRET,
+      callbackURL: "/auth/google/callback"
+    },
+    accessToken => {
+      console.log(accessToken);
+    }
+  )
+);
 
 if (keys.NODE_ENV === "production") {
   // Express will serve up production assets
