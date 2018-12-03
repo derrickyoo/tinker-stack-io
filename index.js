@@ -22,7 +22,7 @@ if (keys.NODE_ENV === "production") {
 }
 
 app.get("/", (req, res) => {
-  res.send({ hi: "there" });
+  res.send("Welcome to TinkerStack.io");
 });
 
 const port = process.env.PORT || 3000;
