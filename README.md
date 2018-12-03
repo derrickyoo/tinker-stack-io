@@ -1,6 +1,6 @@
 # tinker-stack-io
 
-Landing page for TinkerStack.io. An internet-based company. 
+TinkerStack.io. An internet-based company. 
 
 ## Running Locally
 

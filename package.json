@@ -1,7 +1,7 @@
 {
   "name": "tinker-stack-io",
   "version": "1.0.0",
-  "description": "Landing page for TinkerStack.io. An internet-based company.",
+  "description": "TinkerStack.io. An internet-based company.",
   "main": "index.js",
   "engines": {
     "node": "10.14.0",
