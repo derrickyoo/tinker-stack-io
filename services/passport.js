@@ -19,8 +19,14 @@ module.exports = keys => {
         // TODO: Authentication functionality
         console.log("Google callback initiated");
 
-        // Create new user record
-        new User({ googleID: profile.id }).save();
+        User.findOne({ googleID: profile.id }).then(existingUser => {
+          if (existingUser) {
+            // User record exists with profile ID
+          } else {
+            // Create a new user record
+            new User({ googleID: profile.id }).save();
+          }
+        });
       }
     )
   );
