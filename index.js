@@ -5,8 +5,8 @@ const mongoose = require("mongoose");
 const hbs = require("hbs");
 
 const keys = require("./config/keys");
-require("./services/passport")(keys);
 require("./models/user");
+require("./services/passport")(keys);
 
 mongoose.connect(
   keys.MONGODB_URI,

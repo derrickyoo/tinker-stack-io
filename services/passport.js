@@ -1,5 +1,8 @@
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const mongoose = require("mongoose");
+
+const User = mongoose.model("users");
 
 // Authenitcate users with Google
 // https://console.developers.google.com
@@ -15,6 +18,9 @@ module.exports = keys => {
       (accessToken, refreshToken, profile, done) => {
         // TODO: Authentication functionality
         console.log("Google callback initiated");
+
+        // Create new user record
+        new User({ googleID: profile.id }).save();
       }
     )
   );
