@@ -5,8 +5,8 @@ const mongoose = require("mongoose");
 const hbs = require("hbs");
 
 const keys = require("./config/keys");
-
 require("./services/passport")(keys);
+require("./models/user");
 
 mongoose.connect(
   keys.MONGODB_URI,
@@ -14,7 +14,6 @@ mongoose.connect(
 );
 
 const app = express();
-
 require("./routes/authRoutes")(app);
 
 if (keys.NODE_ENV === "production") {
