@@ -19,3 +19,7 @@ integration. Other strategies will be added at a future time and date.
 ## Environment Variables
 See `.env.example` for a list of required variables when running the server
 locally and in production.
+
+## Plugins
+This project utilizes [Prettier](https://prettier.io/docs/en/) for code
+formatting.
