@@ -22,9 +22,12 @@ module.exports = keys => {
         User.findOne({ googleID: profile.id }).then(existingUser => {
           if (existingUser) {
             // User record exists with profile ID
+            done(null, existingUser);
           } else {
-            // Create a new user record
-            new User({ googleID: profile.id }).save();
+            // Async operation that creates a new user record
+            new User({ googleID: profile.id })
+              .save()
+              .then(user => done(null, user));
           }
         });
       }
