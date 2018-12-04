@@ -13,6 +13,14 @@ module.exports = app => {
 
   app.get("/auth/google/callback", passport.authenticate("google"));
 
+  app.get("/api/logout", (req, res) => {
+    // Logout is one of many functions that is
+    // attached to the request object by
+    // Passport and destroys user object
+    req.logout();
+    res.send(req.user);
+  });
+
   app.get("/api/current_user", (req, res) => {
     res.send(req.user);
   });
