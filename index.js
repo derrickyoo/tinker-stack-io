@@ -8,6 +8,11 @@ const keys = require("./config/keys");
 
 require("./services/passport")(keys);
 
+mongoose.connect(
+  keys.MONGODB_URI,
+  { useNewUrlParser: true }
+);
+
 const app = express();
 
 require("./routes/authRoutes")(app);
