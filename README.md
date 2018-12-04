@@ -45,5 +45,8 @@ Utilizes [Passport](http://www.passportjs.org/) as a middleware for handling
 OAuth strategies as well as user authentication with the server using cookies.
 Other OAuth strategies will be added at a future time and date.
 
+## Create React App
+* [Create-React-App](https://github.com/facebook/create-react-app)
+
 ## Optional Plugins
 * [Prettier](https://prettier.io/docs/en/) for code formatting.
