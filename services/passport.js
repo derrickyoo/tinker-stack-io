@@ -4,7 +4,17 @@ const mongoose = require("mongoose");
 
 const User = mongoose.model("users");
 
-// Authenitcate users with Google
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
+passport.deserializeUser((id, done) => {
+  User.findById(id).then(user => {
+    done(null, user);
+  });
+});
+
+// Authenitcate users with Google+ API OAuth 2.0
 // https://console.developers.google.com
 // http://www.passportjs.org/packages/passport-google-oauth20/
 module.exports = keys => {

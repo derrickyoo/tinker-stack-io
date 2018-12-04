@@ -2,7 +2,9 @@ console.log("Starting index.js");
 
 const express = require("express");
 const mongoose = require("mongoose");
-const hbs = require("hbs");
+const cookieSession = require("cookie-session");
+const passport = require("passport");
+// const hbs = require("hbs");
 
 const keys = require("./config/keys");
 require("./models/user");
@@ -14,6 +16,17 @@ mongoose.connect(
 );
 
 const app = express();
+
+app.use(
+  cookieSession({
+    maxAge: 30 * 24 * 60 * 60 * 1000, // Expires 30 days (milliseconds)
+    keys: [keys.COOKIE_KEY] // Encrypt cookie with COOKIE_KEY
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 require("./routes/authRoutes")(app);
 
 if (keys.NODE_ENV === "production") {
