@@ -23,7 +23,6 @@ app.use(
     keys: [keys.COOKIE_KEY] // Encrypt cookie with COOKIE_KEY
   })
 );
-
 app.use(passport.initialize());
 app.use(passport.session());
 
