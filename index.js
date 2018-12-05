@@ -41,7 +41,7 @@ if (keys.NODE_ENV === "production") {
 }
 
 app.get("/", (req, res) => {
-  res.send("Welcome to TinkerStack.io");
+  res.send("<h1>Welcome to the TinkerStack.io server-side</h1>");
 });
 
 const port = process.env.PORT || 5000;

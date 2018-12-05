@@ -1,7 +1,7 @@
 import React from "react";
 
 const App = () => {
-  return <div>Welcome to TinkerStack.io</div>;
+  return <h1>Welcome to the TinkerStack.io client-side</h1>;
 };
 
 export default App;
