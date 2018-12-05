@@ -25,21 +25,16 @@ module.exports = keys => {
         clientSecret: keys.GOOGLE_CLIENT_SECRET,
         callbackURL: "/auth/google/callback"
       },
-      (accessToken, refreshToken, profile, done) => {
-        // TODO: Authentication functionality
+      async (accessToken, refreshToken, profile, done) => {
         console.log("Google callback initiated");
+        const existingUser = await User.findOne({ googleID: profile.id });
 
-        User.findOne({ googleID: profile.id }).then(existingUser => {
-          if (existingUser) {
-            // User record exists with profile ID
-            done(null, existingUser);
-          } else {
-            // Async operation that creates a new user record
-            new User({ googleID: profile.id })
-              .save()
-              .then(user => done(null, user));
-          }
-        });
+        if (existingUser) {
+          done(null, existingUser);
+        } else {
+          const user = await new User({ googleID: profile.id }).save();
+          done(null, user);
+        }
       }
     )
   );
