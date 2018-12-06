@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 class Header extends Component {
   renderContent() {
@@ -35,9 +36,13 @@ class Header extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a className="navbar-brand" href="/">
+        <Link
+          to={this.props.auth ? "/dashboard" : "/"}
+          className="navbar-brand"
+          href="/"
+        >
           TinkerStack
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
