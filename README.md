@@ -1,6 +1,6 @@
 # TinkerStack.io
 
-[![version][version-badge]][CHANGELOG] [![license][license-badge]][LICENSE]
+`v0.1.0`
 
 ## Table of Contents
 
