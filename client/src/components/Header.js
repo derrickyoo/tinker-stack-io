@@ -1,7 +1,39 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 class Header extends Component {
+  renderContent() {
+    switch (this.props.auth) {
+      case null:
+        return;
+      case false:
+        return (
+          <span>
+            <span className="navbar-text mr-sm-2">
+              <a href="/auth/google">Sign In</a> or
+            </span>
+            <a
+              href="/auth/google"
+              className="btn btn-outline-success my-2 my-sm-0"
+            >
+              Sign Up
+            </a>
+          </span>
+        );
+      default:
+        return (
+          <a
+            href="/api/logout"
+            className="btn btn-outline-success my-2 my-sm-0"
+          >
+            Sign Out
+          </a>
+        );
+    }
+  }
+
   render() {
+    console.log(this.props.auth);
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <a className="navbar-brand" href="/">
@@ -65,19 +97,15 @@ class Header extends Component {
               aria-label="Search"
             />
           </form>
-          <span className="navbar-text mr-sm-2">
-            <a href="/">Log in</a> or
-          </span>
-          <a
-            href="/auth/google"
-            className="btn btn-outline-success my-2 my-sm-0"
-          >
-            Sign Up
-          </a>
+          {this.renderContent()}
         </div>
       </nav>
     );
   }
 }
 
-export default Header;
+function mapStateToProps({ auth }) {
+  return { auth };
+}
+
+export default connect(mapStateToProps)(Header);
