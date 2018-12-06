@@ -1,52 +1,79 @@
-# tinker-stack-io
+# TinkerStack.io
 
-TinkerStack.io. An internet-based company. 
+[![version][version-badge]][CHANGELOG] [![license][license-badge]][LICENSE]
 
-## Running Locally
-Make sure you have [Node.js](http://nodejs.org/) installed.
+## Table of Contents
+
+- [Background](#background)
+- [Install](#install)
+- [Resources](#resources)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Background
+
+This is an internet-based tech company. Full background coming soon...
+
+## Install
+
+Below are the steps to get started for local development.
+
+**Step 1: Clone the repo and `cd` into the project folder**
 
 ```sh
-git@github.com:derrickyoo/tinker-stack-io.git # or clone your own fork
+git@github.com:derrickyoo/tinker-stack-io.git
 cd tinker-stack-io
-npm install
-npm start
 ```
 
-## Environment Variables
-See `.env.example` for a list of required variables when running the server
-locally and in production. Add valid keys and rename `.env.example` to `.env`.
+**Step 2: Install both server and client-side dependencies**
+```sh
+# tinker-stack-io
+npm install
+
+# tinker-stack-io/client
+cd client
+npm install
+```
+**Step 3: Register external APIs**
+
+* [Google+ API](https://developers.google.com)
+* [mLab](https://mlab.com)
+* [Heroku](https://heroku.com) - optional
+
+**Step 4: Set environment variables**
+
+See `.env.example` for a list of required variables. Add valid keys to
+`.env.example` and rename the file to `.env`.
+
+By default, this project will run in development mode using an untracked file
+in `./config/dev.js`, unless specified `NODE_ENV="production"`.
 
 ```sh
-NODE_ENV=""
+# Set environment
+NODE_ENV="development"
+
+# External API keys
 GOOGLE_CLIENT_ID=""
 GOOGLE_CLIENT_SECRET=""
 MONGODB_URI=""
+
+# Generate a hash yourself for cookie-session encryption
 COOKIE_KEY=""
 ```
 
-## Dependencies
-See `package.json` for a list of project dependencies.
-* [express](https://www.npmjs.com/package/express)
-* [mongoose](https://www.npmjs.com/package/mongoose)
-* [cookie-session](https://www.npmjs.com/package/cookie-session)
-* [passport](https://www.npmjs.com/package/passport)
-* [dot-env](https://www.npmjs.com/package/dotenv)
+## Resources
 
-External APIs
-* [Google+ API](https://developers.google.com)
+A list of helpful documents:
 
-## Project Development
-Cloud platforms and tools used for development purposes.
-* [Heroku](https://heroku.com)
-* [mLab](https://mlab.com)
+* [create-react-app](https://github.com/facebook/create-react-app)
+* [standard-readme](https://github.com/RichardLitt/standard-readme)
+* [keep-a-changelog](https://github.com/olivierlacan/keep-a-changelog)
+* [semantic versioning](https://semver.org/spec/v2.0.0.html)
 
-## Authentication
-Utilizes [Passport](http://www.passportjs.org/) as a middleware for handling
-OAuth strategies as well as user authentication with the server using cookies.
-Other OAuth strategies will be added at a future time and date.
+## Contributing
 
-## Create React App
-* [Create-React-App](https://github.com/facebook/create-react-app)
+See [the contributing file](CONTRIBUTING.md)!
 
-## Optional Plugins
-* [Prettier](https://prettier.io/docs/en/) for code formatting.
+## License
+
+[© Derrick Yoo.](./LICENSE)

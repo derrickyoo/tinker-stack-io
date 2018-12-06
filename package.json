@@ -1,6 +1,6 @@
 {
   "name": "tinker-stack-io",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "TinkerStack.io. An internet-based company.",
   "main": "index.js",
   "engines": {
