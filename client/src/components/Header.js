@@ -68,9 +68,12 @@ class Header extends Component {
           <span className="navbar-text mr-sm-2">
             <a href="/">Log in</a> or
           </span>
-          <button className="btn btn-outline-success my-2 my-sm-0">
+          <a
+            href="/auth/google"
+            className="btn btn-outline-success my-2 my-sm-0"
+          >
             Sign Up
-          </button>
+          </a>
         </div>
       </nav>
     );
