@@ -10,9 +10,9 @@ const Profile = () => <h1>Profile</h1>;
 const App = () => {
   return (
     <div>
+      <Header />
       <BrowserRouter>
-        <div>
-          <Header />
+        <div className="container">
           <Route exact path="/" component={Landing} />
           <Route exact path="/dashboard" component={Dashboard} />
           <Route path="/profile" component={Profile} />
