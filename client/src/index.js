@@ -1,5 +1,3 @@
-/* eslint-disable import/first */
-// Non JavaScript files will need to have specific extension.
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import React from "react";
