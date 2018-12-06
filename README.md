@@ -61,6 +61,13 @@ MONGODB_URI=""
 COOKIE_KEY=""
 ```
 
+**Step 5: Run development environment**
+
+```sh
+cd tinker-stack-io
+npm run dev
+```
+
 ## Resources
 
 A list of helpful documents:
