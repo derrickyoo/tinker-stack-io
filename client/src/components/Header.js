@@ -9,7 +9,7 @@ class Header extends Component {
         return;
       case false:
         return (
-          <div className="navbar-nav ml-auto">
+          <div className="navbar-nav">
             <a className="nav-link" href="/auth/google">
               Sign in
             </a>
@@ -23,9 +23,7 @@ class Header extends Component {
         );
       default:
         return (
-          <div className="navbar-nav ml-auto">
-            <ul className="navbar-nav ml-auto" />
-
+          <ul className="navbar-nav">
             <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
@@ -56,14 +54,14 @@ class Header extends Component {
                 </a>
               </div>
             </li>
-          </div>
+          </ul>
         );
     }
   }
 
   render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-light bg-light py-3">
+      <nav className="navbar navbar-expand-md navbar-light bg-light py-3">
         <div className="container">
           <Link
             to={this.props.auth ? "/dashboard" : "/"}
@@ -83,8 +81,11 @@ class Header extends Component {
             <span className="navbar-toggler-icon" />
           </button>
 
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav mr-auto">
+          <div
+            className="collapse navbar-collapse justify-content-between"
+            id="navbarSupportedContent"
+          >
+            <ul className="navbar-nav">
               <li className="nav-item active">
                 <a className="nav-link" href="/">
                   Home <span className="sr-only">(current)</span>
