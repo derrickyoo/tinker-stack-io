@@ -8,7 +8,7 @@ require("./models/user");
 require("./services/passport")(keys);
 
 mongoose.connect(
-  keys.MONGODB_URI,
+  keys.mongoURI,
   { useNewUrlParser: true }
 );
 
@@ -17,7 +17,7 @@ const app = express();
 app.use(
   cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000, // Expires 30 days (milliseconds)
-    keys: [keys.COOKIE_KEY] // Encrypt cookie with COOKIE_KEY
+    keys: [keys.cookieKey] // Encryption
   })
 );
 app.use(passport.initialize());
@@ -25,7 +25,7 @@ app.use(passport.session());
 
 require("./routes/authRoutes")(app);
 
-if (keys.NODE_ENV === "production") {
+if (keys.nodeEnv === "production") {
   // Express will serve up production assets
   // like our main.js file, or main.css file
   app.use(express.static("client/build"));

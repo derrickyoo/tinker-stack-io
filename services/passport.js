@@ -21,8 +21,8 @@ module.exports = keys => {
   passport.use(
     new GoogleStrategy(
       {
-        clientID: keys.GOOGLE_CLIENT_ID,
-        clientSecret: keys.GOOGLE_CLIENT_SECRET,
+        clientID: keys.googleClientID,
+        clientSecret: keys.googleClientSecret,
         callbackURL: "/auth/google/callback"
       },
       async (accessToken, refreshToken, profile, done) => {
