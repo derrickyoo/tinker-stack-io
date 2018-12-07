@@ -11,24 +11,26 @@ class Header extends Component {
         return (
           <div className="navbar-nav ml-auto">
             <a className="nav-link" href="/auth/google">
-              Log In
+              Sign in
             </a>
             <a
               className="btn btn-outline-success my-2 my-sm-0"
               href="/auth/google"
             >
-              Sign Up
+              Sign up
             </a>
           </div>
         );
       default:
         return (
-          <a
-            href="/api/logout"
-            className="btn btn-outline-success my-2 my-sm-0"
-          >
-            Sign Out
-          </a>
+          <div className="navbar-nav ml-auto">
+            <a
+              href="/api/logout"
+              className="btn btn-outline-success my-2 my-sm-0"
+            >
+              Sign out
+            </a>
+          </div>
         );
     }
   }
@@ -87,9 +89,8 @@ class Header extends Component {
                   Something else here
                 </a>
               </div>
-
               <a className="nav-link disabled" href="/">
-                Disabled
+                Pricing
               </a>
             </div>
             {this.renderContent()}
