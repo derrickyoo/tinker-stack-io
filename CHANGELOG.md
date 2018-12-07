@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 * Bootstrap js dependencies, jquery, popperjs.
 * Imported fontawesome-free.
-* Strip integration
+* Strip integration and react-stripe-checkout
 
 ### Fixed
 * Header component dropdowns and styling.
