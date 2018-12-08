@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
+import Payments from "./Payments";
+
 class Header extends Component {
   renderContent() {
     switch (this.props.auth) {
@@ -45,6 +47,7 @@ class Header extends Component {
                 <a className="dropdown-item" href="/">
                   Profile
                 </a>
+                <Payments />
                 <div className="dropdown-divider" />
                 <a className="dropdown-item" href="/">
                   Settings
