@@ -47,6 +47,13 @@ class Header extends Component {
                 <a className="dropdown-item" href="/">
                   Profile
                 </a>
+                <div className="dropdown-divider" />
+                <a className="dropdown-item" href="/">
+                  Credits:{" "}
+                  <span className="badge badge-pill badge-success">
+                    {this.props.auth.credits}
+                  </span>
+                </a>
                 <Payments />
                 <div className="dropdown-divider" />
                 <a className="dropdown-item" href="/">
