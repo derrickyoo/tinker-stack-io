@@ -42,24 +42,11 @@ npm install
 
 **Step 4: Set environment variables**
 
-See `.env.example` for a list of required variables. Add valid keys to
+See `.env.example` for a list of required variables on both the **server** and **client** side directories. Add valid keys to
 `.env.example` and rename the file to `.env`.
 
 By default, this project will run in development mode using an untracked file
 in `./config/dev.js`, unless specified `NODE_ENV="production"`.
-
-```sh
-# Set environment
-NODE_ENV="development"
-
-# External API keys
-GOOGLE_CLIENT_ID=""
-GOOGLE_CLIENT_SECRET=""
-MONGODB_URI=""
-
-# Generate a hash yourself for cookie-session encryption
-COOKIE_KEY=""
-```
 
 **Step 5: Run development environment**
 
