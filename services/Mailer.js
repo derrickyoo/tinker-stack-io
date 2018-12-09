@@ -12,6 +12,7 @@ class Mailer extends helpers.Mail {
     this.recipients = this.formatAddresses(recipients);
 
     this.addClickTracking();
+    this.setPersonalizations(this.recipients);
   }
 
   formatAddresses(recipients) {
@@ -21,12 +22,9 @@ class Mailer extends helpers.Mail {
   }
 
   addClickTracking() {
-    const clickTracking = {
-      enable: true,
-      entableText: true
+    const trackingSettings = {
+      clickTracking: { enable: true, enableText: true }
     };
-    const trackingSettings = { clickTracking };
-
     this.setTrackingSettings(trackingSettings);
   }
 }
