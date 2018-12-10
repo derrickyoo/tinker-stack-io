@@ -9,6 +9,7 @@ require("./models/User");
 require("./models/Survey");
 require("./services/passport")(keys);
 
+mongoose.set("debug", true);
 mongoose.connect(
   keys.mongoURI,
   { useNewUrlParser: true }
@@ -31,6 +32,7 @@ require("./routes/billingRoutes")(app);
 require("./routes/surveyRoutes")(app);
 
 if (keys.nodeEnv === "production") {
+  mongoose.set("debug", false);
   // Express will serve up production assets
   // like our main.js file, or main.css file
   app.use(express.static("client/build"));

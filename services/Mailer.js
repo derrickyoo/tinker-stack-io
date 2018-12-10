@@ -9,7 +9,7 @@ class Mailer {
       html: content,
       to: recipients,
       trackingSettings: {
-        clickTracking: { enable: true, enableText: true }
+        clickTracking: { enable: true }
       }
     };
     sgMail.setApiKey(keys.sendGridKey);
