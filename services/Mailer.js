@@ -1,4 +1,4 @@
-const sgMail = require("@sendgrid/mail");
+const client = require("@sendgrid/client");
 const helpers = require("@sendgrid/helpers").classes;
 const keys = require("../config/keys");
 
@@ -6,6 +6,7 @@ class Mailer extends helpers.Mail {
   constructor({ subject, recipients }, content) {
     super();
 
+    this.sgClient = client.setApiKey(keys.sendGridKey);
     this.from_email = new helpers.EmailAddress("no-reply@tinker-stack.io");
     this.subject = subject;
     this.body = this.addHtmlContent(content);
@@ -26,6 +27,10 @@ class Mailer extends helpers.Mail {
       clickTracking: { enable: true, enableText: true }
     };
     this.setTrackingSettings(trackingSettings);
+  }
+
+  async send() {
+    console.log("TODO: API request to SendGrid");
   }
 }
 
