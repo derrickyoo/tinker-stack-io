@@ -30,7 +30,14 @@ class Mailer extends helpers.Mail {
   }
 
   async send() {
-    console.log("TODO: API request to SendGrid");
+    const request = {
+      method: "POST",
+      url: "/v3/mail/send",
+      body: this.toJSON()
+    };
+
+    const response = await this.sgClient.request(request);
+    return response;
   }
 }
 
