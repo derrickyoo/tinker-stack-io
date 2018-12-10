@@ -3,8 +3,6 @@ const keys = require("../config/keys");
 
 class Mailer {
   constructor({ subject, recipients }, content) {
-    super();
-
     this.message = {
       from: "no-reply@tinker-stack.io",
       subject: subject,
@@ -19,7 +17,7 @@ class Mailer {
 
   async send() {
     try {
-      response = await sgMail.sendMultiple(this.message);
+      const response = await sgMail.sendMultiple(this.message);
       return response;
     } catch (err) {
       throw err;
