@@ -1,12 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   return (
     <div>
       <h1>Dashboard</h1>
-      <button type="button" className="btn btn-primary btn-lg">
-        New Survey
-      </button>
+      <Link
+        to="/surveys/new"
+        class="btn btn-primary btn-lg active"
+        role="button"
+        aria-pressed="true"
+      >
+        Add New Survey
+      </Link>
     </div>
   );
 };

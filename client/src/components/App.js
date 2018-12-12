@@ -8,6 +8,7 @@ import Landing from "./Landing";
 import Dashboard from "./Dashboard";
 
 const Profile = () => <h1>Profile</h1>;
+const SurveyNew = () => <h1>SurveyNew</h1>;
 
 class App extends Component {
   componentDidMount() {
@@ -23,6 +24,7 @@ class App extends Component {
             <div className="container">
               <Route exact path="/" component={Landing} />
               <Route exact path="/dashboard" component={Dashboard} />
+              <Route path="/surveys/new" component={SurveyNew} />
               <Route path="/profile" component={Profile} />
             </div>
           </div>
