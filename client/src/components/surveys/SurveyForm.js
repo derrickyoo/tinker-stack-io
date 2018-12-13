@@ -33,14 +33,12 @@ class SurveyForm extends Component {
       <div>
         <form onSubmit={this.props.handleSubmit(values => console.log(values))}>
           {this.renderFields()}
-          <Link
-            to="/dashblard"
-            type="button"
-            className="btn btn-warning-outline mr-2"
-          >
-            Cancel
+          <Link to="/dashblard">
+            <button type="button" className="btn btn-danger">
+              Cancel
+            </button>
           </Link>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary float-right">
             Submit
           </button>
         </form>
