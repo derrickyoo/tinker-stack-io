@@ -32,7 +32,7 @@ class SurveyForm extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.props.handleSubmit(values => console.log(values))}>
+        <form onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)}>
           {this.renderFields()}
           <Link to="/dashboard">
             <button type="button" className="btn btn-danger">
@@ -40,7 +40,7 @@ class SurveyForm extends Component {
             </button>
           </Link>
           <button type="submit" className="btn btn-primary float-right">
-            Submit
+            Next
           </button>
         </form>
       </div>

@@ -7,7 +7,7 @@ const Dashboard = () => {
       <h1>Dashboard</h1>
       <Link
         to="/surveys/new"
-        class="btn btn-primary btn-lg active"
+        className="btn btn-primary btn-lg active"
         role="button"
         aria-pressed="true"
       >
