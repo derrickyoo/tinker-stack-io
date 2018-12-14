@@ -10,7 +10,7 @@ const surveyTemplate = require("../services/emailTemplates/surveyTemplate");
 const Survey = mongoose.model("surveys");
 
 module.exports = app => {
-  app.get("/api/surveys/thanks", (req, res) => {
+  app.get("/api/surveys/:surveyId/:choice", (req, res) => {
     res.send("Thanks for completing our survey!");
   });
 
@@ -20,7 +20,6 @@ module.exports = app => {
     _.chain(req.body)
       .map(({ email, url }) => {
         const match = p.test(new URL(url).pathname);
-
         if (match) {
           return { email, surveyId: match.surveyId, choice: match.choice };
         }
@@ -37,7 +36,8 @@ module.exports = app => {
           },
           {
             $inc: { [choice]: 1 },
-            $set: { "recipients.$.responded": true }
+            $set: { "recipients.$.responded": true },
+            lastResponded: new Date()
           }
         ).exec();
       })
